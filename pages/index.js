@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 
-const words = [
-  'REACT', 'JAVASCRIPT', 'PROGRAMACAO', 'COMPUTADOR', 'ALGORITMO',
-  'DESENVOLVIMENTO', 'INTERFACE', 'APLICATIVO', 'FRAMEWORK', 'BIBLIOTECA'
-];
-
 export default function Home() {
   const [word, setWord] = useState('');
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongGuesses, setWrongGuesses] = useState(0);
 
+  // Lista de palavras DIRETO no componente
+  const words = [
+    'REACT', 'JAVASCRIPT', 'PROGRAMACAO', 'COMPUTADOR', 'ALGORITMO',
+    'DESENVOLVIMENTO', 'INTERFACE', 'APLICATIVO', 'FRAMEWORK', 'BIBLIOTECA'
+  ];
+
   useEffect(() => {
+    // Seleciona palavra aleatória
     const randomWord = words[Math.floor(Math.random() * words.length)];
     setWord(randomWord);
   }, []);
